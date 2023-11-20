@@ -2,7 +2,6 @@
   "name": "little-lemon",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mariia-moroz.github.io/little-lemon/",
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@testing-library/jest-dom": "^5.17.0",
