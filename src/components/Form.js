@@ -1,5 +1,4 @@
 import React from "react";
-// import "./styles/ReservationsContent.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -38,7 +37,7 @@ function Form({ onFormConfirmed }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(formSubmit)}>
+    <form onSubmit={handleSubmit(formSubmit)} role='form'>
       <fieldset>
         <div className='field'>
           <label htmlFor='name'>Full Name</label>
@@ -46,19 +45,25 @@ function Form({ onFormConfirmed }) {
             type='text'
             placeholder='Jane Hopper'
             name='name'
+            id='name'
             {...register("name")}
           />
-          <span className='error-message'>{errors.name?.message}</span>
+          <span className='error-message' data-testid='error-message'>
+            {errors.name?.message}
+          </span>
         </div>
         <div className='field'>
           <label htmlFor='email'>Email</label>
           <input
-            type='text'
+            type='email'
             placeholder='email@email.com'
             name='email'
+            id='email'
             {...register("email")}
           />
-          <span className='error-message'>{errors.email?.message}</span>
+          <span className='error-message' data-testid='error-message'>
+            {errors.email?.message}
+          </span>
         </div>
         <div className='field'>
           <label htmlFor='telephone'>Telephone</label>
@@ -68,7 +73,9 @@ function Form({ onFormConfirmed }) {
             name='telephone'
             {...register("telephone")}
           />
-          <span className='error-message'>{errors.telephone?.message}</span>
+          <span className='error-message' data-testid='error-message'>
+            {errors.telephone?.message}
+          </span>
         </div>
 
         <div className='field occasion'>
@@ -90,12 +97,16 @@ function Form({ onFormConfirmed }) {
             name='guests'
             {...register("guests")}
           />
-          <span className='error-message'>{errors.guests?.message}</span>
+          <span className='error-message' data-testid='error-message'>
+            {errors.guests?.message}
+          </span>
         </div>
         <div className='field'>
           <label htmlFor='date'>Date & Time</label>
           <input type='datetime-local' name='date' {...register("date")} />
-          <span className='error-message'>{errors.date?.message}</span>
+          <span className='error-message' data-testid='error-message'>
+            {errors.date?.message}
+          </span>
         </div>
         <button className='reserve-btn' type='submit'>
           Reserve
